@@ -230,4 +230,31 @@ public class Library {
     System.out.println("Sukces: Czytelnik " + reader.getName() + " wypożyczył książkę '" + copy.getBook().getTitle() + "'.");
   }
 
+  /**
+   * Wyświetla wszystkie egzemplarze aktualnie wypożyczone przez wybranego czytelnika.
+   *
+   * @param readerId Identyfikator czytelnika, którego wypożyczenia chcemy sprawdzić.
+   */
+  public void displayReaderBorrowedBooks(int readerId) {
+    Reader reader = findReaderById(readerId);
+
+    if (reader == null) {
+      System.out.println("Błąd: Nie znaleziono czytelnika o ID " + readerId);
+      return;
+    }
+
+    System.out.println("--- Wypożyczenia czytelnika: " + reader.getName() + " ---");
+
+    // Sprawdzamy czy lista wypożyczonych książek jest pusta
+    if (reader.getBorrowedBooks().isEmpty()) {
+      System.out.println("Ten czytelnik nie ma obecnie wypożyczonych żadnych książek.");
+    } else {
+      // Pętla przechodząca przez listę wypożyczeń czytelnika
+      for (BookCopy copy : reader.getBorrowedBooks()) {
+        System.out.println(copy.toString());
+      }
+    }
+    System.out.println("-------------------------------------------------");
+  }
+
 }
