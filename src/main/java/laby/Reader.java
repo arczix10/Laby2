@@ -57,6 +57,8 @@ public class Reader {
   }
 
   /**
+   * Zwraca listę wyporzyczonych egzemplarzy.
+   *
    * @return Lista aktualnie wypożyczonych egzemplarzy.
    */
   public List<BookCopy> getBorrowedBooks() {

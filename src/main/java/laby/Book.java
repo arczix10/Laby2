@@ -1,6 +1,9 @@
+package laby;
+
 /**
  * Reprezentuje ogólny tytuł książki w systemie.
  */
+
 public class Book {
   /**
    * Tytuł książki.

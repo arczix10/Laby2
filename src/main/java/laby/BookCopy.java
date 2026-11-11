@@ -20,9 +20,7 @@ public class BookCopy {
    */
   private Book book;
 
-  /**
-   * Status wypożyczenia.
-   */
+
   private boolean isBorrowed;
 
   /**
