@@ -15,7 +15,7 @@ public class Library {
   private List<Book> books;
 
   /**
-   * Lista wszystkich wprowadzonych czytelników[cite: 1].
+   * Lista wszystkich wprowadzonych czytelników.
    */
   private List<Reader> readers;
 
@@ -56,8 +56,6 @@ public class Library {
 
   /**
    * Dodaje nowego czytelnika do systemu bibliotecznego.
-   *
-   * @param name Imię i nazwisko nowego czytelnika.
    */
   public void addReader(String name) {
     Reader newReader = new Reader(name);
@@ -72,7 +70,7 @@ public class Library {
   public void displayReaders() {
     System.out.println("--- Lista czytelników ---");
     if (readers.isEmpty()) {
-      System.out.println("Brak zarejestrowanych czytelników.");
+      System.out.println("Brak czytelników.");
     } else {
       for (Reader reader : readers) {
         System.out.println(reader.toString());
@@ -100,7 +98,7 @@ public class Library {
   public void displayBooks() {
     System.out.println("--- Lista tytułów książek ---");
     if (books.isEmpty()) {
-      System.out.println("Brak zarejestrowanych książek.");
+      System.out.println("Brak książek.");
     } else {
       for (Book book : books) {
         System.out.println(book.toString());
@@ -126,14 +124,12 @@ public class Library {
   /**
    * Dodaje nowy egzemplarz dla podanego tytułu książki.
    * Jeśli tytułu nie ma w systemie, automatycznie go tworzy.
-   *
-   * @param author Autor książki (wykorzystywany, jeśli trzeba utworzyć nowy wpis).
    */
   public void addBookCopy(String title, String author) {
     Book book = findBookByTitle(title);
 
     if (book == null) {
-      System.out.println("Tytuł '" + title + "' nie istnieje. Tworzenie nowego wpisu w katalogu...");
+      System.out.println("Tytuł '" + title + "' nie istnieje.");
       book = new Book(title, author);
       books.add(book);
     }
@@ -202,21 +198,20 @@ public class Library {
     BookCopy copy = findCopyById(copyId);
 
     if (reader == null) {
-      System.out.println("Błąd: Nie znaleziono czytelnika o ID " + readerId);
-      return; // Przerywamy działanie metody
+      System.out.println("Błąd: Nie znaleziono czytelnika");
+      return;
     }
 
     if (copy == null) {
-      System.out.println("Błąd: Nie znaleziono egzemplarza o ID " + copyId);
+      System.out.println("Błąd: Nie znaleziono egzemplarza");
       return;
     }
 
     if (copy.isBorrowed()) {
-      System.out.println("Błąd: Egzemplarz o ID " + copyId + " jest już wypożyczony przez kogoś innego.");
+      System.out.println("Błąd: Egzemplarz jest już wypożyczony przez kogoś innego.");
       return;
     }
 
-    // Właściwy proces wypożyczenia
     copy.setBorrowed(true);
     reader.borrowBook(copy);
     System.out.println("Sukces: Czytelnik " + reader.getName() + " wypożyczył książkę '" + copy.getBook().getTitle() + "'.");
@@ -237,11 +232,11 @@ public class Library {
 
     System.out.println("--- Wypożyczenia czytelnika: " + reader.getName() + " ---");
 
-    // Sprawdzamy czy lista wypożyczonych książek jest pusta
+    // czy lista wypożyczonych jest pusta
     if (reader.getBorrowedBooks().isEmpty()) {
       System.out.println("Ten czytelnik nie ma obecnie wypożyczonych żadnych książek.");
     } else {
-      // Pętla przechodząca przez listę wypożyczeń czytelnika
+      //pętla przechodząca przez listę wypożyczeń
       for (BookCopy copy : reader.getBorrowedBooks()) {
         System.out.println(copy.toString());
       }

@@ -13,11 +13,7 @@ public class Reader {
    */
   private static int idCounter = 1;
 
-  /**
-   * Unikalne ID czytelnika.
-   */
   private int readerId;
-
 
   private String name;
 
@@ -32,19 +28,13 @@ public class Reader {
   public Reader(String name) {
     this.readerId = idCounter++;
     this.name = name;
-    this.borrowedBooks = new ArrayList<>(); // Inicjujemy pustą listę
+    this.borrowedBooks = new ArrayList<>();
   }
 
-  /**
-   * Zwraca Id czytelnika.
-   */
   public int getReaderId() {
     return readerId;
   }
 
-  /**
-   * Zwraca imie i nazwisko.
-   */
   public String getName() {
     return name;
   }

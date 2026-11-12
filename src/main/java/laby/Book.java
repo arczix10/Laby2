@@ -5,14 +5,9 @@ package laby;
  */
 
 public class Book {
-  /**
-   * Tytuł książki.
-   */
+
   private String title;
 
-  /**
-   * Autor książki.
-   */
   private String author;
 
   /**
@@ -22,7 +17,6 @@ public class Book {
     this.title = title;
     this.author = author;
   }
-
 
   public String getTitle() {
     return title;

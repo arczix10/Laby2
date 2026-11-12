@@ -16,10 +16,9 @@ public class BookCopy {
   private int copyId;
 
   /**
-   * Powiązany tytuł książki.
+   * Tytuł książki.
    */
   private Book book;
-
 
   private boolean isBorrowed;
 
@@ -36,8 +35,6 @@ public class BookCopy {
 
   /**
    * Zwraca ID książki.
-   *
-   * @return ID egzemplarza.
    */
   public int getCopyId() {
     return copyId;
@@ -45,17 +42,13 @@ public class BookCopy {
 
   /**
    * Zwraca obiekt książki.
-   *
-   * @return Obiekt przypisanej książki.
    */
   public Book getBook() {
     return book;
   }
 
   /**
-   * Zwraca stan wypożyczenia książki.
-   *
-   * @return true jeśli wypożyczony, false jeśli leży na półce.
+   * Zwraca stan wypożyczenia książki, true jeśli jest wypożyczona, false jeśli nie jest.
    */
   public boolean isBorrowed() {
     return isBorrowed;
@@ -63,8 +56,6 @@ public class BookCopy {
 
   /**
    * Zmienia stan wypożyczenia.
-   *
-   * @param borrowed Nowy status wypożyczenia (true/false).
    */
   public void setBorrowed(boolean borrowed) {
     this.isBorrowed = borrowed;

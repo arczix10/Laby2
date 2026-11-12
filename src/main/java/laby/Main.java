@@ -3,21 +3,18 @@ package laby;
 import java.util.Scanner;
 
 /**
- * Główna klasa aplikacji zawierająca interfejs konsolowy dla użytkownika[cite: 1].
+ * Główna klasa aplikacji zawierająca interfejs konsolowy dla użytkownika.
  */
 public class Main {
 
   /**
    * Główna metoda uruchamiająca program i pętlę menu.
-   *
-   * @param args Argumenty wiersza poleceń (nieużywane w tym projekcie).
    */
   public static void main(String[] args) {
     Library library = new Library();
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
-    System.out.println("Witaj w systemie bibliotecznym!");
 
     while (running) {
       System.out.println("\n--- MENU GŁÓWNE ---");
@@ -70,10 +67,10 @@ public class Main {
             break;
           case "0":
             running = false;
-            System.out.println("Zamykanie systemu.");
+            System.out.println("Zamykanie.");
             break;
           default:
-            System.out.println("Nieznana opcja. Wybierz numer od 0 do 7.");
+            System.out.println("Zła opcja. Wybierz numer od 0 do 7.");
         }
       } catch (NumberFormatException e) {
         System.out.println("Błąd: podaj liczbę całkowitą (ID).");

@@ -1,0 +1,59 @@
+@startuml
+
+class Book {
+    - title : String
+    - author : String
+    + Book(title: String, author: String)
+    + getTitle() : String
+    + getAuthor() : String
+    + toString() : String
+}
+
+class BookCopy {
+    - {static} idCounter : int
+    - copyId : int
+    - isBorrowed : boolean
+    - book : Book
+    + BookCopy(book: Book)
+    + getCopyId() : int
+    + getBook() : Book
+    + isBorrowed() : boolean
+    + setBorrowed(borrowed: boolean)
+    + toString() : String
+}
+
+class Reader {
+    - {static} idCounter : int
+    - readerId : int
+    - name : String
+    - borrowedBooks : List<BookCopy>
+    + Reader(name: String)
+    + getReaderId() : int
+    + getName() : String
+    + getBorrowedBooks() : List<BookCopy>
+    + borrowBook(copy: BookCopy)
+    + toString() : String
+}
+
+class Library {
+    - books : List<Book>
+    - readers : List<Reader>
+    - allCopies : List<BookCopy>
+    + Library()
+    + addReader(name: String)
+    + displayReaders()
+    + addBookTitle(title: String, author: String)
+    + displayBooks()
+    + addBookCopy(title: String, author: String)
+    + displayAllCopies()
+    + borrowBookCopy(readerId: int, copyId: int)
+    + displayReaderBorrowedBooks(readerId: int)
+}
+
+Library "1" *-- "*" Book : agreguje
+Library "1" *-- "*" BookCopy : agreguje
+Library "1" *-- "*" Reader : agreguje
+BookCopy "*" --> "1" Book : odnosi się do
+Reader "1" --> "*" BookCopy : wypożycza
+
+@enduml
