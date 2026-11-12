@@ -18,9 +18,7 @@ public class Reader {
    */
   private int readerId;
 
-  /**
-   * Imię i nazwisko czytelnika.
-   */
+
   private String name;
 
   /**
@@ -30,8 +28,6 @@ public class Reader {
 
   /**
    * Tworzy nowego czytelnika.
-   *
-   * @param name Imię i nazwisko.
    */
   public Reader(String name) {
     this.readerId = idCounter++;
@@ -39,9 +35,8 @@ public class Reader {
     this.borrowedBooks = new ArrayList<>(); // Inicjujemy pustą listę
   }
 
-  /** Zwraca Id czytelnika.
-   *
-   * @return ID czytelnika.
+  /**
+   * Zwraca Id czytelnika.
    */
   public int getReaderId() {
     return readerId;
@@ -49,17 +44,13 @@ public class Reader {
 
   /**
    * Zwraca imie i nazwisko.
-   *
-   * @return Imię i nazwisko.
    */
   public String getName() {
     return name;
   }
 
   /**
-   * Zwraca listę wyporzyczonych egzemplarzy.
-   *
-   * @return Lista aktualnie wypożyczonych egzemplarzy.
+   * Zwraca listę aktualnie wyporzyczonych egzemplarzy.
    */
   public List<BookCopy> getBorrowedBooks() {
     return borrowedBooks;
@@ -67,8 +58,6 @@ public class Reader {
 
   /**
    * Dodaje egzemplarz do listy wypożyczonych książek czytelnika.
-   *
-   * @param copy Wypożyczany egzemplarz.
    */
   public void borrowBook(BookCopy copy) {
     borrowedBooks.add(copy);

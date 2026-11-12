@@ -35,8 +35,6 @@ public class Library {
 
   /**
    * Zwraca liste ksiazek.
-   *
-   * @return Lista wszystkich wprowadzonych tytułów.
    */
   public List<Book> getBooks() {
     return books;
@@ -44,8 +42,6 @@ public class Library {
 
   /**
    * Zwraca czytelników.
-   *
-   * @return Lista wszystkich czytelników.
    */
   public List<Reader> getReaders() {
     return readers;
@@ -53,8 +49,6 @@ public class Library {
 
   /**
    * Zwraca liste egzeplarzy.
-   *
-   * @return Lista wszystkich egzemplarzy.
    */
   public List<BookCopy> getAllCopies() {
     return allCopies;
@@ -118,7 +112,6 @@ public class Library {
   /**
    * Wyszukuje tytuł książki w systemie na podstawie jej tytułu.
    *
-   * @param title Tytuł szukanej książki.
    * @return Obiekt książki, jeśli zostanie znaleziona, lub null w przeciwnym razie.
    */
   private Book findBookByTitle(String title) {
@@ -134,7 +127,6 @@ public class Library {
    * Dodaje nowy egzemplarz dla podanego tytułu książki.
    * Jeśli tytułu nie ma w systemie, automatycznie go tworzy.
    *
-   * @param title  Tytuł książki.
    * @param author Autor książki (wykorzystywany, jeśli trzeba utworzyć nowy wpis).
    */
   public void addBookCopy(String title, String author) {
@@ -153,8 +145,8 @@ public class Library {
   }
 
   /**
-   * Wyświetla wszystkie fizyczne egzemplarze książek znajdujące się w systemie.
-   * Jeśli lista jest pusta, wypisuje odpowiedni komunikat.
+   * Wyświetla wszystkie egzemplarze książek znajdujące się w systemie.
+   * Jeśli lista jest pusta, wypisuje komunikat.
    */
   public void displayAllCopies() {
     System.out.println("--- Lista wszystkich egzemplarzy ---");
